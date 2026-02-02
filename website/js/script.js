@@ -8,7 +8,7 @@ const options = {
   },
 };
 
-fetch(url, options)
+fadsadsadsetch(url, options)
   .then((response) =>
     response.json().then((result) => {
       console.log(result.data); // Your API data

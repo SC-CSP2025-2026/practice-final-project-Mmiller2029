@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
   </head>
   <body>
-    <h1>Hasdasi</h1>
-    <script src="js/script.js"></script>
+    <div class="container">
+      <div class="row">
+        <h1>Quizmania</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <select id="single-select">
+            <option value="easy">Easy</option>
+            <option value="med">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <select id="single-select 2">
+            <option value="categories">categories</option>
+          </select>
+          <button class="button">Search</button>
+          <p></p>
+          <input type="text" name="answer" id="answer" />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,16 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  align-items: center;
+  background: #3f5efb;
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  display: flex;
+  text-align: center;
+}
