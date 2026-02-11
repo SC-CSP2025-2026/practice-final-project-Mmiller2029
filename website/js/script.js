@@ -24,6 +24,8 @@ const CultureButton = document.querySelector("#Culture-btn");
 const LandmarksButton = document.querySelector("#Landmarks-btn");
 
 const listGroup = document.querySelector(".list-group");
+let difficultyLevelChosen = false;
+let categoryChosen = false;
 
 // const url =
 //   "https://student-api-proxy.onrender.com/api/quizmania-api.p.rapidapi.com/trivia-filtered?category=geography&difficulty=easy";
@@ -36,14 +38,12 @@ const listGroup = document.querySelector(".list-group");
 // };
 // Geography Literature Science History Art Music Technology Sports Entertainment Biology Mathematics Food Mythology Astronomy YouTubers/Streamers Language Animals Culture Landmarks
 
-const Sortbydiffcateg = async (event) => {
-  event.preventDefault();
-  const difficulty = event.currentTarget.tags;
+const Sortbydiffcateg = async (difficulty, category) => {
   if (!difficulty) {
     alert("difficulty not set properly");
     return;
   }
-  const category = event.currentTarget.tags2;
+
   if (!category) {
     alert("category not set properly");
     return;
@@ -71,8 +71,13 @@ const Sortbydiffcateg = async (event) => {
 //     console.log(error);
 //   });
 
-EasyButton.addEventListener("click", Sortbydiffcateg);
-EasyButton.tags = "Easy";
+EasyButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  difficultyLevelChosen = "Easy";
+  if (categoryChosen) {
+    Sortbydiffcateg(difficultyLevelChosen, categoryChosen);
+  }
+});
 MediumButton.addEventListener("click", Sortbydiffcateg);
 MediumButton.tags = "Medium";
 HardButton.addEventListener("click", Sortbydiffcateg);
