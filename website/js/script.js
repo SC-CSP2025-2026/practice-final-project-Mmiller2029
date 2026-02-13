@@ -40,7 +40,7 @@ const Sortbydiffcateg = async (difficulty, category) => {
     return;
   }
 
-  const url = `https://student-api-proxy.onrender.com/api/quizmania-api.p.rapidapi.com/trivia-filtered?category=${category}&difficulty=${difficulty}`;
+  const url = `https://student-api-proxy.onrender.com/api/quizmania-api.p.rapidapi.com/trivia-filtered?category=${category}&difficulty=${difficulty}&limit=1`;
   const options = {
     method: "GET",
     headers: {
@@ -51,12 +51,13 @@ const Sortbydiffcateg = async (difficulty, category) => {
 
   const response = await fetch(url, options);
   const result = await response.json();
-  const answers = result.data.answers;
-  console.log(result);
+  const answers = result.data.question.answers;
+  const question = result.data.question.question;
   listGroup.innerHTML = "";
+  listGroup.insertAdjacentHTML("beforeEnd", question);
   answers.forEach((answer) => {
-    const listItem = `<li class="list-group-item">${question.answers}</li>`;
-    listGroup.insertAdjacentHTML(listItem);
+    const listItem = `<li class="list-group-item">${answer}</li>`;
+    listGroup.insertAdjacentHTML("beforeEnd", listItem);
   });
 };
 // fetch(url, options)
@@ -143,7 +144,7 @@ TechnologyButton.addEventListener("click", (event) => {
 });
 SportsButton.addEventListener("click", (event) => {
   event.preventDefault();
-  categoryChosen = "Sportss";
+  categoryChosen = "Sports";
   if (difficultyLevelChosen) {
     Sortbydiffcateg(difficultyLevelChosen, categoryChosen);
   }
